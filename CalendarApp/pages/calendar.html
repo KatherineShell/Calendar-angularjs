@@ -1,0 +1,68 @@
+
+    <div class="place"  ng-controller="StoreController">
+        <div class="row">
+            <div class="col-md-3">
+                <div style="margin-left:10px" class="btn-group" role="group">
+                    <input type="button" class="btn btn-default" value="Lang">
+                    <input type="button" class="btn btn-default" value="Edit Event" ng-click="goFormEdit = !goFormEdit">
+                    <input type="button" class="btn btn-default" value="Add Event" ng-click="goForm = !goForm">
+                </div>
+                <div class="event" ng-repeat="event in events">
+                    <h4>{{event.title}}</h4>
+                    <a  ng-click="deleteEvent()"> <img class="delete" ng-src="../img/Delete.png" title="Delete"></a><br />
+                    <h5>{{event.description}}</h5><br />
+                    <b>{{event.start| date:'dd-MM-y'}} - {{event.end| date:'dd-MM-y'}}</b>
+                    <a ng-click="getEdit()" > <img class="pencil" ng-src="../img/Pencil.png" title="Edit"></a>
+                </div>
+
+                <div  class="event" ng-show="goFormEdit">
+                    <label>Event:</label>
+                    <input type="text" size="15" ng-model="ev.title" required />
+                    <label>Description:</label>
+                    <textarea ng-model="ev.description"></textarea><br /><br />
+                    <label>From</label>
+                    <input type="text"  ng-model="ev.start" required />
+                    <label> - to</label>
+                    <input type="text" ng-model="ev.end" required />
+                    <input type="button" value="Save" ng-click="editEvent()"/>
+                 </div>
+                 <div class="event" ng-show="goForm">
+                    <label>Event:</label>
+                    <input type="text" size="15" ng-model="event.title" required />
+                    <label>Description:</label>
+                    <textarea ng-model="event.description"></textarea><br/><br/>
+                    <label for="from">From</label>
+                    <input  type="text" ng-model="event.start" placeholder="месяц/день/год (07/29/2017)" required/>
+                    <label for="to"> - to</label>
+                    <input  type="text" ng-model="event.end" placeholder="месяц/день/год (07/29/2017)"  required/>
+                    <input type="submit" value="Create" ng-click="Add()" >
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="for_tabs">
+                      <section ng-controller="TabController as tab">
+                        <ul class="nav nav-pills">
+                            <li ng-class="{active:tab === 1}"><a ng-click="tab.selectTab(1)">Calendar One</a></li>
+                            <li ng-class="{active:tab === 2}"><a ng-click="tab.selectTab(2)">Calendar Two</a></li>
+                            <li ng-class="{active:tab === 3}"><a ng-click="tab.selectTab(3)">Calendar Three</a></li>
+
+                        </ul>
+                        <div class="panel" ng-show="tab.isSelected(1)">
+                           
+                            <div id="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="uiConfig.calendar"></div>
+                          </div>
+                        <div class="panel" ng-show="tab.isSelected(2)">
+                          
+                            <b>Calendar Two View Options</b>
+                        </div>
+                        <div class="panel" ng-show="tab.isSelected(3)">
+                           
+                            <b>Calendar Three View Options</b>
+                        </div>
+                    </section>
+                </div>
+                
+            </div>
+        </div>
+    </div>

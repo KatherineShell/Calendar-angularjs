@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html ng-app="calendar">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Calendar</title>
+    @* CSS *@
+    <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    @* JS *@
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-local-storage.js"></script>
+    <script src="~/Scripts/calendar.js"></script>
+    <script src="~/Scripts/fullcalendar.js"></script>
+    <script src="~/Scripts/gcal.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+             </div>
+            <div class="navbar-collapse collapse" ng-controller="indexController">
+                <ul class="nav navbar-nav">
+                   <li ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li ng-hide="!authentication.isAuth"><a href="#!/calendar">My Calendar</a></li>
+                    <li ng-hide="!authentication.isAuth"><a href="#!/register" ng-click="logOut()">Logout</a></li>
+                    <li ng-hide="authentication.isAuth"> <a href="#!/register">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    <div class="view-container">
+        <div ng-view class="view-frame"></div>
+    </div>
+    <div class="container body-content">
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+

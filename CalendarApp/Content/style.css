@@ -1,0 +1,71 @@
+
+body {
+	
+	
+}
+.reg_block{
+    margin-top: 40px;
+	margin-left: 10px;
+	display: block;
+	width: 1200px;
+	padding: 20px;
+}
+.place{
+	margin-top: 40px;
+	margin-left: 10px;
+	display: block;
+	border-color: red;
+	width: 1200px;
+	border: 2px solid  #DCDCDC;
+	border-radius: 6px;
+	background-color:  #F5F5F5;
+	padding: 20px;
+}
+
+.for_tabs{
+	
+}
+.btn-group.button{
+	margin: 15px;
+	height: 15px;
+}
+.event{
+	background-color:#ADD8E6;
+	margin: 10px;
+	margin-bottom: 20px;
+	border-radius: 7px;
+	padding: 10px;
+	padding-left: 20px;
+}
+.event b{
+	margin: 10px;
+}
+.event input{
+	height: 24px;
+	border-radius: 2px;
+	border: 1px solid  #DCDCDC;
+	margin-bottom: 10px;
+}
+.event h4{
+    float:left;
+}
+.event h5{
+    margin-top: 30px;
+    margin-left: 0;
+}
+.delete{
+	height: 15px;
+	margin-top: 10px;
+    float:right;
+}
+.delete:hover{
+	height: 17px;
+}
+.pencil{
+    height: 15px;
+	margin-bottom: 30px;
+    float:right;
+}
+.pencil:hover{
+	height: 17px;
+}
